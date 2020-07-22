@@ -10,7 +10,7 @@
 
 # production
 /build
-
+/dist
 # misc
 electron-builder.yml
 .DS_Store
