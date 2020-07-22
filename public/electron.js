@@ -17,6 +17,7 @@ mainWindow = new BrowserWindow({ width: 900, height: 680 ,
 });
 
 mainWindow.once('ready-to-show', () => {
+    console.log("checking for updates");
     autoUpdater.checkForUpdatesAndNotify();
   });
 
@@ -47,9 +48,11 @@ ipcMain.on('app_version', (event) => {
 
 
 autoUpdater.on('update-available', () => {
+    console.log("update-available");
     mainWindow.webContents.send('update_available');
   });
   autoUpdater.on('update-downloaded', () => {
+      console.log("update-downloaded");
     mainWindow.webContents.send('update_downloaded');
   });
 
