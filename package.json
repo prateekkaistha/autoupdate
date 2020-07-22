@@ -33,8 +33,8 @@
     "electron-build": "electron-builder",
     "release": "yarn react-build && electron-builder --publish=always",
     
-    "build": "yarn react-build && yarn electron-build --win --publish never",
-    "deploy": "yarn react-build && yarn electron-build --win --publish always",
+    "build": "yarn react-build && electron-builder build --win --publish never",
+    "deploy": "yarn react-build && electron-builder build --win --publish always",
     
 
     "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electron .\""
