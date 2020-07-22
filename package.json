@@ -31,7 +31,7 @@
     "react-test": "react-scripts test --env=jsdom",
     "react-eject": "react-scripts eject",
     "electron-build": "electron-builder",
-    "release": "yarn react-build && electron-builder --publish=always",
+    "release": "yarn react-build && electron-builder --win --publish=always",
     
     "build": "yarn react-build && electron-builder build --win --publish never",
     "deploy": "yarn react-build && electron-builder build --win --publish always",
