@@ -1,5 +1,7 @@
 const electron = require("electron");
 const {ipcMain} = require("electron");
+
+
 const { autoUpdater } = require('electron-updater');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -8,18 +10,21 @@ const url = require('url')
 const isDev = require("electron-is-dev");
 let mainWindow;
 function createWindow() {
-mainWindow = new BrowserWindow({ width: 900, height: 680 ,
-
+    console.log("Created window");
+mainWindow = new BrowserWindow({ width: 900, height: 900 ,
+    show: false,
     webPreferences: {
         nodeIntegration: true,
         }
 
 });
 
+
 mainWindow.once('ready-to-show', () => {
     console.log("checking for updates");
     autoUpdater.checkForUpdatesAndNotify();
-  });
+    mainWindow.show();
+});
 
 mainWindow.loadURL(isDev? "http://localhost:3000": `file://${path.join(__dirname, "../build/index.html")}`);
 
@@ -43,7 +48,9 @@ app.on("activate", () => {
 
 
 ipcMain.on('app_version', (event) => {
+    console.log("APP VERSION");
   event.sender.send('app_version', { version: app.getVersion() });
+
 });
 
 

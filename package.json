@@ -32,11 +32,8 @@
     "react-eject": "react-scripts eject",
     "electron-build": "electron-builder",
     "release": "yarn react-build && electron-builder --win --publish=always",
-    
     "build": "yarn react-build && electron-builder build --win --publish never",
     "deploy": "yarn react-build && electron-builder build --win --publish always",
-    
-
     "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
@@ -61,7 +58,7 @@
     "wait-on": "^5.1.0"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/prateekkaistha/autoupdate.git"
+    "type": "git",
+    "url": "https://github.com/prateekkaistha/autoupdate.git"
   }
 }
